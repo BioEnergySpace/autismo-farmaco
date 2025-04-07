@@ -1,0 +1,121 @@
+html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fármacos y Autismo</title>
+    <!-- Bootstrap CSS desde CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        body {
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Potencial de Fármacos en el Tratamiento del Autismo</h1>
+        
+        <div class="row g-4">
+            <!-- Bumetanida -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title h4">Bumetanida</h2>
+                        <p class="card-text">
+                            La bumetanida es un diurético que ha mostrado potencial en el tratamiento del autismo al 
+                            modular el equilibrio de cloruro en las neuronas. Estudios preliminares sugieren que 
+                            podría reducir la severidad de los síntomas al influir en la señalización GABAérgica, 
+                            particularmente en casos con desequilibrios en la excitación/inhibición cerebral.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary btn-sm" onclick="showInfo('bumetanida')">Más Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oxitocina -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title h4">Oxitocina</h2>
+                        <p class="card-text">
+                            Conocida como la "hormona social", la oxitocina se ha investigado por su capacidad para 
+                            mejorar las habilidades sociales y la interacción en personas con autismo. Los ensayos 
+                            clínicos muestran resultados mixtos, con beneficios potenciales en el reconocimiento 
+                            emocional y la conducta social.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary btn-sm" onclick="showInfo('oxitocina')">Más Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leucovorin -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title h4">Leucovorin</h2>
+                        <p class="card-text">
+                            El leucovorin (ácido folínico) se ha estudiado en autismo relacionado con deficiencias 
+                            de folato cerebral. Puede mejorar la comunicación y el comportamiento en subgrupos 
+                            específicos de pacientes, especialmente aquellos con anomalías en el metabolismo 
+                            del folato.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary btn-sm" onclick="showInfo('leucovorin')">Más Info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para información adicional -->
+        <div class="modal fade" id="infoModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Información Adicional</5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" id="modalContent">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y Popper.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        function showInfo(drug) {
+            const info = {
+                'bumetanida': 'Investigaciones recientes (2023-2024) sugieren que la bumetanida podría ser más efectiva en niños con autismo cuando se administra en etapas tempranas del desarrollo.',
+                'oxitocina': 'Estudios de 2024 indican que la administración nasal de oxitocina podría tener efectos variables según la edad y el perfil genético del paciente.',
+                'leucovorin': 'El leucovorin muestra mayor eficacia en pacientes con autismo que presentan anticuerpos antifolato, según ensayos clínicos recientes.'
+            };
+            
+            document.getElementById('modalContent').innerText = info[drug];
+            const modal = new bootstrap.Modal(document.getElementById('infoModal'));
+            modal.show();
+        }
+    </script>
+</body>
+</html>
+
